@@ -156,7 +156,6 @@
         }
         return null;
     }
-
     function onResults(results) {
         if (loadingScreen.style.display !== 'none') loadingScreen.style.display = 'none';
 
@@ -300,10 +299,8 @@
         minDetectionConfidence: 0.9,
         minTrackingConfidence: 0.9
     });
-
-    hands.onResults(onResults);
-
-    const camera = new Camera(videoElement, {
+ hands.onResults(onResults);
+  const camera = new Camera(videoElement, {
         onFrame: async () => { await hands.send({ image: videoElement }); },
         width: 1280, height: 720
     });
